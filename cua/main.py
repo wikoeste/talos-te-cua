@@ -39,7 +39,7 @@ def readxls():
     print("===Type q to quit/exit the program===")
     #Print the list of files
     for item in os.listdir():
-        if os.path.isfile(item) and not item.startswith('.') and item.endswith('.xlsx'):
+        if os.path.isfile(item) and not item.startswith('.') and not item.startswith('~$') and item.endswith('.xlsx'):
             with open(item, "rb") as f:
                 print(str(count) + ". " + item)
                 fnames.append(item)
