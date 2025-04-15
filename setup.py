@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='cua-inject',
-    version='1.0',
+    version='0.2',
     packages=["cua","cua.common"],
     description='Cua Injection tool',
     author='Will Koester',

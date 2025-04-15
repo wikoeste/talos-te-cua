@@ -1,11 +1,11 @@
 import getpass,re,json,os
-from cua_utils import publisher
+#from cua_utils import publisher
 #from databricks.sdk import WorkspaceClient
 #from databricks.sdk.runtime import dbutils
 
 # initialize global variables
 def init():
-    global uname,cuakey,cuser,cpass,cuaurl,armory
+    global uname,cuakey,cuser,cpass,cuaurl,armory,ver
 
 #take the search keyname and return the appropriate api key
 def getKey(keyname):
@@ -37,11 +37,10 @@ def getKey(keyname):
 # Set globals
 uname   = getpass.getuser()
 cuakey  = getKey("armory")
+ver     = "0.2"
+cuaurl  = "https://cua-publisher.sl.talos.cisco.com/api/v1/cua/analysis"
 
+# For mrt/cua libs but fail to run successfully
 #cuser   = "cua"
 #cpass   = "thisisthepassword"
 #cpass   = dbutils.secret("dns-and-web", "cua_utils_publisher_pass")
-
-cuaurl  = "https://cua-publisher.sl.talos.cisco.com/api/v1/cua/analysis"
-armory  = '"MnwxOjB8MTA6MTc0NDIyMzA5OXwxMTphcm1vcnktY2VydHwzNDQ6VkdOSmQxRXlVVE5zTkdVMFRtcDFOU3RPZG05aWJEQmtVbEZzYUhOamNDczJRVkptVDBSSGVFaEpOMVJFU0djMU5YaDRlbW95WXl0V1lWcG9Va3B1VkRKaEx5dHdkVVZGVW5rMVRpdG9kVnB1VERGMVZIaDJlVWxZUTNaaU5IcENMMU5NY0VFelZ5c3lMMlZEVVVRemQyczBkM2c1VFROVU0xTlhZM1YzVWxKcFFrTXhValo0Y2pjdk1sZExkM0JsTUZkVmVYb3dZamQwU1djMWNVdEZaV0p0YXpneVVqVkxabW81S3prelQwWjBhbEI0YlZwcmVXZHZWazVHTDNsSVFrOU9TMEl5UTJ0VWFYZEtheXRWVUhKbWR5dGFZMWxPZFdZNE1uY3dkRTlYYlVKU2JrSklVMlk0YXpGblRXUm9RM3AwWW1aelUxVjVNbEJHZVdkUlp3PT18NDNhMTJkZDRlYjM5OGM2NmQ5ZjA0ZWIyNjdjYTY0NmEwNTUwMjdmZWQ2ZTY3ZjU3N2I2NTQxYjhiNmEzNGYxYg=="'
-

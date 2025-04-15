@@ -4,8 +4,9 @@ import sys
 from cua.common import settings
 settings.init()
 import pandas as pd
-from cua_utils import publisher
-from mrt.armory import Armory
+requests.packages.urllib3.disable_warnings()
+#from cua_utils import publisher
+#from mrt.armory import Armory
 
 # Test API access
 def testapi():
@@ -76,11 +77,15 @@ def readxls():
 
 ####MAIN######
 def main():
-    urls = ["https://1234computers.com","http://examplemalwaredomain.com","https://phish.opendnstest.com"]
-    testapi()           # verify our access/authentication
-    inject(urls)        # injects a hardcoded url list to cua
-    urls = readxls()    # user selects a xls file from ace to create a url list to inject to cua
-    inject(urls)        # api call to armory which injects the urls to cua
+    frmtd   = []
+    urls    = ["https://1234computers.com","http://examplemalwaredomain.com","https://phish.opendnstest.com"]   # test urls to inject
+    testapi()               # verify our access/authentication
+    inject(urls)            # injects a hardcoded url list to cua
+    urls    = readxls()    # user selects a xls file from ace to create a url list to inject to cua
+    for u in urls:
+        parsed = re.sub(r'hxxp:\/\/|hxxps:\/\/|\[|\]',"",u)     # removes hxxp:// or hxxps:// or [] from [.]com seperators
+        frmtd.append(parsed)
+    inject(frmtd)        # api call to armory which injects the urls to cua
     '''
     #armory = Armory()
     #armory.inject(urls)

@@ -1,6 +1,7 @@
-# Talos Escalations CUA Intection Tool
+# Talos Escalations - CUA Injection Tool
 
-The purpose is to take ACE URL data and pipe it into CUA to possibel assist in auto resolving cases.
+The purpose of this tool is to take a list of URLs and inject\
+telemetry data to CUA to assist with ticket automation.
 
 # Release Notes
 0.2\
